@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 
 import static com.voximplant.foregroundservice.Constants.NOTIFICATION_CONFIG;
+import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MICROPHONE;
 
 public class VIForegroundService extends Service {
 
@@ -30,7 +31,7 @@ public class VIForegroundService extends Service {
                         Notification notification = NotificationHelper.getInstance(getApplicationContext())
                                 .buildNotification(getApplicationContext(), notificationConfig);
 
-                        startForeground((int)notificationConfig.getDouble("id"), notification);
+                        startForeground(FOREGROUND_SERVICE_TYPE_MICROPHONE, notification);
                     }
                 }
             } else if (action.equals(Constants.ACTION_FOREGROUND_SERVICE_STOP)) {
