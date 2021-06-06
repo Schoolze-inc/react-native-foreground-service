@@ -121,7 +121,8 @@ class NotificationHelper {
 
         }
 
-        notificationBuilder.setContentTitle(notificationConfig.getString("title"))
+        notificationBuilder.setOngoing(true)
+                .setContentTitle(notificationConfig.getString("title"))
                 .setContentText(notificationConfig.getString("text"))
                 .setPriority(priority)
                 .setContentIntent(pendingIntent);
